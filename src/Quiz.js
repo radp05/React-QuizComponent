@@ -11,7 +11,7 @@ class Quiz extends Component {
         this.resetClickHandler = this.resetClickHandler.bind(this)
 
     }
-    resetClickHandler(){
+    handleResetClick(){
         this.setState((state) => {
             return { quiz_position: 1 }
           })
@@ -25,7 +25,7 @@ class Quiz extends Component {
     render(){
         const isQuizEnd = ((this.state.quiz_position - 1 ) === (quizData.quiz_questions.length));
         return (
-            isQuizEnd?<QuizEnd handleResetClick={this.resetClickHandler}/>
+            isQuizEnd?<QuizEnd resetClickHandler={this.handleResetClick}/>
             :<QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position-1]}
             showNextQuestionHandler={this.showNextQuestion.bind(this)}
             />

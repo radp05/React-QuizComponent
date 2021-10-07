@@ -7,7 +7,7 @@ class QuizEnd extends React.Component{
         return(
             <div>
             <p>Thanks for playing!</p>
-            <a href='' onClick= {this.props.handleResetClick}>Reset Quiz</a>
+            <a href='' onClick= {this.props.resetClickHandler}>Reset Quiz</a>
           </div>
         )
     }
