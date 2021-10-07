@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import QuizQuestion from './QuizQuestions';
 
 let quizData = require('./quiz_data.json')
-import QuizQuestion from './QuizQuestions';
 
 class Quiz extends Component {
     constructor(props){
@@ -10,10 +10,10 @@ class Quiz extends Component {
     }
     render(){
         return (
-            <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position-1].instruction_text}/>
+            <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position-1]}/>
 
         )
     }
 }
 
-exports default Quiz;
+export default Quiz;
