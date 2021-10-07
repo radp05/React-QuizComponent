@@ -3,13 +3,20 @@ import QuizQuestionButton from './QuizQuestionButton';
 
 
 class QuizQuestion extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {incorrectAnswer:false}
+  }
   handleClick(button_text){
-    //if answer chosen is correct , then showNextQuestionHandler
-    console.log("CLICKETY CLICK")
-    console.log("here is button_text",button_text)
-    console.log("here'sthe answer", this.props.quiz_question.answer)
+
     if(button_text === this.props.quiz_question.answer){
+      this.setState({incorrectAnswer:false});
       this.props.showNextQuestionHandler();
+
+    }
+    
+    else{
+      this.setState({incorrectAnswer:true});
     }
   }
   render() {
@@ -27,6 +34,8 @@ class QuizQuestion extends React.Component {
             })}
           </ul>
         </section>
+        {this.state.incorrectAnswer ? <p className='error'>Sorry, that's not right</p> : null}
+
       </main>
     )
   }
